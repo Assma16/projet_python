@@ -2,22 +2,19 @@
 # coding: utf-8
 
 # In[1]:
-
-
-class joueur:
+class joueur:#une structure joueur
 
     def __init__(self): 
 
       
         self.nom = ""
         self.dernier_score=0
-
         self.meilleur_score = 0
 
 # In[2]:
 
 
-def verifié (list):
+def verifié (list):#verifié si ona arriver a la fin du jeu ou pas encors
     k=0;
     i=len(list)
     for j in range (i):
@@ -25,13 +22,12 @@ def verifié (list):
     if k==1 :
         return 0
     else :
-        return 
-
+        return 1 
 
 # In[3]:
 
 
-def convert(str):
+def convert(str):#convertir le chaine en une liste d'entier naturel
     z=[]
     if len(t)==3:
         z.append(int(str[0]));
@@ -49,7 +45,7 @@ def convert(str):
 # In[4]:
 
 
-def affichage (list):
+def affichage (list):#afficher l'etat du jeux
     
     for j in range (len(list)):
         
@@ -65,44 +61,17 @@ def affichage (list):
 # In[5]:
 
 
-def Score(tour):
-    tot=0
+def Score(tour):#compter le score a chaque tour
+    t=0
     for i in range(m.ceil(tour/2)): 
-        tot+=i*(10**i)
-    return tot
-
-
-# In[6]:
-
-
-def Top10():
-    print("Top 10:")
-    scores=[]
-    index=0
-    listrange=0
-  
-    with open("save.txt",'r') as save:
-        for best in save:
-            scores.append([best.strip('\n').split(':')[0],best.strip('\n').split(':')[2]])
-    if len(scores) <10:
-        listrange=len(scores)
-    else:
-        listrange=10
-    for k in range(listrange):
-        index=0
-        maximum=int(scores[0][1])
-        for i in range(len(scores)):
-            if int(scores[i][1])>maximum:
-                maximum=int(scores[i][1])
-                index=i 
-        print(l+1,".",scores[index][0],":",maximum)
-        scores.remove(scores[index])
+        t+=i*(10**i)
+    return t
 
 
 # In[12]:
 
 
-def setup():
+def setup():#enregistrer les données
     
     global joueur1
     global joueur2
